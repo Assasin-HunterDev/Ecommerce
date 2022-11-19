@@ -64,11 +64,11 @@
 </template>
 
 <script setup lang="ts">
-import {MenuIcon, LogoutIcon, UserIcon} from '@heroicons/vue/outline'
-import {Menu, MenuButton, MenuItems, MenuItem} from '@headlessui/vue'
-import {ChevronDownIcon} from '@heroicons/vue/solid'
+import {MenuIcon, LogoutIcon, UserIcon} from "@heroicons/vue/outline";
+import {Menu, MenuButton, MenuItems, MenuItem} from "@headlessui/vue";
+import {ChevronDownIcon} from "@heroicons/vue/solid";
 
-const emit = defineEmits(['toggle-sidebar'])
+const emit = defineEmits(["toggle-sidebar"]);
 </script>
 
 <style scoped>
