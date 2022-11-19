@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import {HomeIcon, UserGroupIcon, UsersIcon, ViewListIcon, ChartBarIcon} from '@heroicons/vue/outline'
+import {HomeIcon, UserGroupIcon, UsersIcon, ViewListIcon, ChartBarIcon} from "@heroicons/vue/outline";
 </script>
 
 <style scoped>
