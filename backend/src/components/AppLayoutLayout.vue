@@ -1,9 +1,8 @@
 <template>
     <div class="flex min-h-full">
         <!--    Sidebar    -->
-        <div class="w-[200px] bg-indigo-600">
-            Sidebar
-        </div>
+        <Sidebar />
+        <!--    Sidebar    -->
         <div>
             <!--     Header       -->
             <header class="h-8 shadow bg-gray-50">
@@ -11,15 +10,15 @@
             </header>
             <!--    Content        -->
             <main>
-                <router-view>
-                    Content
-                </router-view>
+                <router-view>Content</router-view>
             </main>
         </div>
     </div>
 </template>
 
 <script setup lang="ts">
+import Sidebar from "./Sidebar.vue";
+
 const {title} = defineProps({
     title: String
 });
