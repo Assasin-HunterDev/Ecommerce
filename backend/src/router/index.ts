@@ -1,9 +1,16 @@
 import {createRouter, createWebHistory} from "vue-router";
+import AppLayout from "../components/AppLayoutLayout.vue";
 import Login from "../views/Login.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
 import ResetPassword from "../views/ResetPassword.vue";
 
 const routes: any = [
+    {
+        path: '/app',
+        name: 'app',
+        component: AppLayout,
+        children: []
+    },
     {
         path: '/login',
         name: 'login',
