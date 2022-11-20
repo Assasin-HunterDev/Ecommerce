@@ -1,6 +1,15 @@
 <template>
     <GuestLayout title="Sign in to your account">
         <form class="mt-8 space-y-6" method="POST" @submit.prevent="login">
+            <div v-if="errorMsg" class="flex items-center justify-between py-3 px-5 bg-red-500 text-white rounded">
+                {{ errorMsg }}
+                <span
+                    class="w-8 h-8 flex items-center justify-center rounded-full transition-colors cursor-pointer hover:bg-[rgba(0,0,0,0.2)]"
+                    @click="errorMsg = ''"
+                >
+                    <XIcon class="h-5 w-5 text-white"/>
+                </span>
+            </div>
             <input type="hidden" name="remember" value="true"/>
             <div class="-space-y-px rounded-md shadow-sm">
                 <div>
@@ -65,7 +74,7 @@ import {ref} from "vue";
 import {useRouter} from "vue-router";
 import store from "../store";
 import GuestLayout from "../components/GuestLayout.vue";
-import {LockClosedIcon} from "@heroicons/vue/solid";
+import {LockClosedIcon, XIcon} from "@heroicons/vue/solid";
 
 interface UserModel {
     email: string;
