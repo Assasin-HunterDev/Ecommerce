@@ -46,7 +46,7 @@ class AuthController extends Controller
     public function logout(): Response|Application|ResponseFactory
     {
         /** @var User $user */
-        Auth::logout();
+        $user = Auth::user();
         $user->currentAccessToken()->delete();
 
         return response('', 204);
