@@ -1,6 +1,6 @@
 import {createStore, Store} from "vuex";
 
-const store: Store<any>= createStore({
+const store: Store<any> = createStore({
     state: {
         user: {
             token: null,
