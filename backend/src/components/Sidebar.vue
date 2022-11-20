@@ -1,6 +1,6 @@
 <template>
     <div class="min-w-[160px] w-[160px] transition-all bg-indigo-600 text-white py-4 px-2">
-        <router-link to=""
+        <router-link :to="{name: 'app.dashboard'}"
                      class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
       <span class="mr-2 text-white">
         <HomeIcon class="w-5"/>
@@ -58,7 +58,7 @@
 </template>
 
 <script setup lang="ts">
-import {HomeIcon, UserGroupIcon, UsersIcon, ViewListIcon, ChartBarIcon} from "@heroicons/vue/outline";
+import {ChartBarIcon, HomeIcon, UserGroupIcon, UsersIcon, ViewListIcon} from "@heroicons/vue/outline";
 </script>
 
 <style scoped>
