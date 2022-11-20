@@ -9,7 +9,7 @@
                 <img src="https://randomuser.me/api/portraits/men/1.jpg" class="rounded-full w-8 mr-2">
                 <small>John Smith</small>
                 <ChevronDownIcon
-                    class="h-5 w-5 text-violet-200 hover:text-violet-100"
+                    class="h-5 w-5 text-indigo-200 hover:text-indigo-100"
                     aria-hidden="true"
                 />
             </MenuButton>
@@ -29,13 +29,13 @@
                         <MenuItem v-slot="{ active }">
                             <button
                                 :class="[
-                  active ? 'bg-violet-500 text-white' : 'text-gray-900',
+                  active ? 'bg-indigo-700 text-white' : 'text-gray-900',
                   'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                 ]"
                             >
                                 <UserIcon
                                     :active="active"
-                                    class="mr-2 h-5 w-5 text-violet-400"
+                                    :class="[active ? 'mr-2 h-5 w-5 text-white' : 'mr-2 h-5 w-5 text-indigo-700']"
                                     aria-hidden="true"
                                 />
                                 Profile
@@ -44,13 +44,13 @@
                         <MenuItem v-slot="{ active }">
                             <button
                                 :class="[
-                  active ? 'bg-violet-500 text-white' : 'text-gray-900',
+                  active ? 'bg-indigo-700 text-white' : 'text-gray-900',
                   'group flex w-full items-center rounded-md px-2 py-2 text-sm',
                 ]"
                             >
                                 <LogoutIcon
                                     :active="active"
-                                    class="mr-2 h-5 w-5 text-violet-400"
+                                    :class="[active ? 'mr-2 h-5 w-5 text-white' : 'mr-2 h-5 w-5 text-indigo-700']"
                                     aria-hidden="true"
                                 />
                                 Logout
