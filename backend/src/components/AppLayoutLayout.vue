@@ -21,7 +21,7 @@
 <script setup lang="ts">
 import Sidebar from "./Sidebar.vue";
 import Navbar from "./Navbar.vue";
-import {ref} from "vue";
+import {ref, onMounted, onUnmounted} from "vue";
 
 const {title} = defineProps({
     title: String
@@ -32,6 +32,19 @@ const sidebarOpened = ref(true);
 function toggleSidebar(): void {
     sidebarOpened.value = !sidebarOpened.value;
 }
+
+function handleSidebarOpened(): void {
+    sidebarOpened.value = window.outerWidth > 768;
+}
+
+onMounted(() => {
+    handleSidebarOpened();
+    window.addEventListener("resize", handleSidebarOpened);
+});
+
+onUnmounted(() => {
+    window.removeEventListener("resize", handleSidebarOpened);
+});
 </script>
 
 <style scoped>

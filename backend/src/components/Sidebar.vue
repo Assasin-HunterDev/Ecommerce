@@ -1,56 +1,56 @@
 <template>
     <div class="min-w-[160px] w-[160px] transition-all bg-indigo-600 text-white py-4 px-2">
         <router-link to=""
-                     class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-      <span class="mr-2 text-gray-300">
+                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
+      <span class="mr-2 text-white">
         <HomeIcon class="w-5"/>
       </span>
-            <span class="text-xs">
+            <span class="text-sm font-normal">
         Dashboard
       </span>
         </router-link>
         <router-link to=""
-                     class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-      <span class="mr-2 text-gray-300">
+                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
+      <span class="mr-2 text-white">
         <ViewListIcon class="w-5"/>
       </span>
-            <span class="text-xs">
+            <span class="text-sm font-normal">
         Products
       </span>
         </router-link>
         <router-link to=""
-                     class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-      <span class="mr-2 text-gray-300">
+                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
+      <span class="mr-2 text-white">
         <ViewListIcon class="w-5"/>
       </span>
-            <span class="text-xs">
+            <span class="text-sm font-normal">
         Orders
       </span>
         </router-link>
         <router-link to=""
-                     class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-      <span class="mr-2 text-gray-300">
+                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
+      <span class="mr-2 text-white">
         <UsersIcon class="w-5"/>
       </span>
-            <span class="text-xs">
+            <span class="text-sm font-normal">
         Users
       </span>
         </router-link>
         <router-link to=""
-                     class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-      <span class="mr-2 text-gray-300">
+                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
+      <span class="mr-2 text-white">
         <UserGroupIcon class="w-5"/>
       </span>
-            <span class="text-xs">
+            <span class="text-sm font-normal">
         Customers
       </span>
         </router-link>
         <router-link to=""
-                     class="flex items-center p-2 rounded transition-colors hover:bg-black/30">
-      <span class="mr-2 text-gray-300">
+                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
+      <span class="mr-2 text-white">
         <ChartBarIcon class="w-5"/>
       </span>
-            <span class="text-xs">
+            <span class="text-sm font-normal">
         Reports
       </span>
         </router-link>
