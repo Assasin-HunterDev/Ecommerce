@@ -1,0 +1,23 @@
+import axios, {AxiosInstance} from "axios";
+import store from "./store";
+import router from "./router";
+
+const axiosClient: AxiosInstance = axios.create({
+    baseURL: `${import.meta.env.VITE_API_BASE_URL}/api`
+})
+
+axiosClient.interceptors.request.use(config => {
+    config.headers!.Authorization = `Bearer ${store.state.user.token}`;
+    return config;
+}, error => Promise.reject(error))
+
+axiosClient.interceptors.response.use(response => {
+    return response;
+}, error => {
+    if (error.response.status === 401) {
+        router.push({name: 'login'})
+    }
+    throw error;
+})
+
+export default axiosClient;
