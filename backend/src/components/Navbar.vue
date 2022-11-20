@@ -43,6 +43,7 @@
                         </MenuItem>
                         <MenuItem v-slot="{ active }">
                             <button
+                                @click="logout"
                                 :class="[
                   active ? 'bg-indigo-700 text-white' : 'text-gray-900',
                   'group flex w-full items-center rounded-md px-2 py-2 text-sm',
@@ -64,11 +65,21 @@
 </template>
 
 <script setup lang="ts">
-import {MenuIcon, LogoutIcon, UserIcon} from "@heroicons/vue/outline";
-import {Menu, MenuButton, MenuItems, MenuItem} from "@headlessui/vue";
+import {useRouter} from "vue-router";
+import store from "../store";
+import {LogoutIcon, MenuIcon, UserIcon} from "@heroicons/vue/outline";
+import {Menu, MenuButton, MenuItem, MenuItems} from "@headlessui/vue";
 import {ChevronDownIcon} from "@heroicons/vue/solid";
 
+const router = useRouter();
+
 const emit = defineEmits(["toggle-sidebar"]);
+
+function logout() {
+    store.dispatch("logout").then(() => {
+        router.push({name: 'login'})
+    });
+}
 </script>
 
 <style scoped>
