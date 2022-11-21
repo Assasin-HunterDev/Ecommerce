@@ -9,7 +9,7 @@
         Dashboard
       </span>
         </router-link>
-        <router-link to=""
+        <router-link :to="{name: 'app.products'}"
                      class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
       <span class="mr-2 text-white">
         <ViewListIcon class="w-5"/>
