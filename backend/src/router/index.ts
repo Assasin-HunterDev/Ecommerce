@@ -2,6 +2,7 @@ import {createRouter, createWebHistory} from "vue-router";
 import store from "../store";
 import AppLayout from "../components/AppLayout.vue";
 import Dashboard from "../views/Dashboard.vue";
+import Products from "../views/Products.vue";
 import Login from "../views/Login.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
 import ResetPassword from "../views/ResetPassword.vue";
@@ -17,6 +18,11 @@ const routes: any = [
                 path: 'dashboard',
                 name: 'app.dashboard',
                 component: Dashboard
+            },
+            {
+                path: 'products',
+                name: 'app.products',
+                component: Products
             },
         ],
         meta: {
