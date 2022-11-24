@@ -16,7 +16,19 @@ class ProductController extends Controller
      */
     public function index(): \Illuminate\Http\Resources\Json\AnonymousResourceCollection
     {
-        return ProductListResource::collection(Product::query()->paginate(10));
+        $search = request('search', false);
+        $perPage = request('per_page', 10);
+        $sortField = request('sort_field', 'updated_at');
+        $sortDirection = request('sort_direction', 'desc');
+
+        $query = Product::query();
+        $query->orderBy($sortField, $sortDirection);
+        if ($search) {
+            $query->where('title', 'like', "%{$search}%")
+                ->orWhere('description', 'like', "%{$search}%");
+        }
+
+        return ProductListResource::collection($query->paginate($perPage));
     }
 
     /**
