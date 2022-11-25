@@ -1,14 +1,5 @@
 import {AxiosResponse} from "axios";
 import axiosClient from "../axios";
-import {PRODUCTS_PER_PAGE} from "../constants";
-
-interface GetProductsInterface {
-    url: string | null,
-    search: String | null,
-    perPage: Number,
-    sort_field: String,
-    sort_direction: String
-}
 
 export function getUser({commit}: any): Promise<AxiosResponse> {
     return axiosClient.get("/user")
@@ -35,27 +26,65 @@ export function logout({commit}: any): Promise<AxiosResponse> {
         });
 }
 
-export function getProducts({commit}: any, {
+export function getProducts({commit, state}: any, {
     url = null,
-    search = "",
-    perPage = PRODUCTS_PER_PAGE,
+    search = '',
+    per_page,
     sort_field,
     sort_direction
-}: GetProductsInterface): Promise<void | AxiosResponse> {
-    commit("setProducts", [true]);
-    url = url || "/product";
+}: any = {}) {
+    commit("setProducts", [true])
+    url = url || "/products";
+    const params = {
+        per_page: state.products.limit,
+    };
     return axiosClient.get(url, {
         params: {
-            search,
-            per_page: perPage,
-            sort_field,
-            sort_direction
+            ...params,
+            search, per_page, sort_field, sort_direction
         }
     })
         .then((response) => {
-            commit('setProducts', [false, response.data])
+            commit("setProducts", [false, response.data])
         })
         .catch(() => {
-            commit('setProducts', [false])
+            commit("setProducts", [false])
         });
+}
+
+export function getProduct({}, id: any) {
+    return axiosClient.get(`/products/${id}`);
+}
+
+export function createProduct({commit}: any, product: any) {
+    if (product.image instanceof File) {
+        const form: FormData = new FormData();
+        form.append("title", product.title);
+        form.append("image", product.image);
+        form.append("description", product.description);
+        form.append("price", product.price);
+        product = form;
+    }
+    return axiosClient.post("/products", product);
+}
+
+export function updateProduct({commit}: any, product: any) {
+    const id = product.id;
+    if (product.image instanceof File) {
+        const form: FormData = new FormData();
+        form.append("id", product.id);
+        form.append("title", product.title);
+        form.append("image", product.image);
+        form.append("description", product.description);
+        form.append("price", product.price);
+        form.append("_method", "PUT");
+        product = form;
+    } else {
+        product._method = "PUT";
+    }
+    return axiosClient.post(`/products/${id}`, product);
+}
+
+export function deleteProduct({commit}: any, id: any) {
+    return axiosClient.delete(`/products/${id}`);
 }
