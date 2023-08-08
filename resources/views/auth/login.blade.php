@@ -18,17 +18,27 @@
 
         @csrf
         <div class="mb-4">
-            <x-input type="email" name="email" placeholder="Your email address" :value="old('email')"/>
+            <x-input
+                type="email"
+                name="email"
+                placeholder="Your email address"
+                :value="old('email')"
+            />
         </div>
         <div class="mb-4">
-            <x-input type="password" name="password" placeholder="Your password" :value="old('password')"/>
+            <x-input
+                type="password"
+                name="password"
+                placeholder="Your password"
+                :value="old('password')"
+            />
         </div>
         <div class="flex justify-between items-center mb-5">
             <div class="flex items-center">
                 <input
                     id="loginRememberMe"
-                    type="checkbox"
                     class="mr-3 rounded border-gray-300 text-purple-500 focus:ring-purple-500"
+                    type="checkbox"
                 />
                 <label for="loginRememberMe">Remember Me</label>
             </div>
