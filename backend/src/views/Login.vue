@@ -1,6 +1,6 @@
 <template>
     <GuestLayout title="Sign in to your account">
-        <form class="mt-8 space-y-6" method="POST" @submit.prevent="login">
+        <form method="POST" @submit.prevent="login" class="mt-8 space-y-6">
             <div v-if="errorMsg" class="flex items-center justify-between py-3 px-5 bg-red-500 text-white rounded">
                 {{ errorMsg }}
                 <span

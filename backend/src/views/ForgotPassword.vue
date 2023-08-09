@@ -1,6 +1,6 @@
 <template>
     <GuestLayout title="Forgot your password">
-        <form class="mt-8 space-y-6" action="#" method="POST">
+        <form method="POST" action="#" class="mt-8 space-y-6">
             <input type="hidden" name="remember" value="true"/>
             <div class="-space-y-px rounded-md shadow-sm">
                 <div>
