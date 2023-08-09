@@ -1,8 +1,5 @@
 <x-app-layout>
-    <form
-        action="{{ route('register') }}"
-        method="post"
-        class="w-[400px] mx-auto p-6 my-16"
+    <form method="POST" action="{{ route('register') }}" class="w-[400px] mx-auto p-6 my-16"
     >
         @csrf
 

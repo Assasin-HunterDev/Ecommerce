@@ -1,6 +1,6 @@
 <x-app-layout>
 
-    <form action="{{ route('password.email') }}" method="post" class="w-[400px] mx-auto p-6 my-16">
+    <form method="POST" action="{{ route('password.email') }}" class="w-[400px] mx-auto p-6 my-16">
         @csrf
         <h2 class="text-2xl font-semibold text-center mb-5">
             Enter your Email to reset password
