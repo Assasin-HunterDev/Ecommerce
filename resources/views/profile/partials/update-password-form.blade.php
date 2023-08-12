@@ -11,7 +11,6 @@
 
     <form method="POST" action="{{ route('password.update') }}" class="mt-6 space-y-6">
         @csrf
-        @method('put')
 
         <div>
             <x-input-label for="current_password" :value="__('Current Password')" />

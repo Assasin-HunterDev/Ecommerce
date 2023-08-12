@@ -14,7 +14,16 @@ class Product extends Model
     use HasSlug;
     use SoftDeletes;
 
-    protected $fillable = ['title', 'description', 'price', 'image', 'image_mime', 'image_size', 'created_by', 'updated_by'];
+    protected $fillable = [
+        'title',
+        'description',
+        'price',
+        'image',
+        'image_mime',
+        'image_size',
+        'created_by',
+        'updated_by'
+    ];
 
     /**
      * Get the options for generating the slug.
@@ -26,5 +35,10 @@ class Product extends Model
         return SlugOptions::create()
             ->generateSlugsFrom('title')
             ->saveSlugsTo('slug');
+    }
+
+    public function getRouteKeyName(): string
+    {
+        return 'slug';
     }
 }

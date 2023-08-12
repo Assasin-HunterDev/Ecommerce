@@ -25,7 +25,7 @@ use Illuminate\Database\Eloquent\Collection;
                         //'addToCartUrl' => route('cart.add', $product)
                     ]) }}})"
                 >
-                    <a href="/"
+                    <a href="{{ route('product.view', $product->slug) }}"
                        class="aspect-w-3 aspect-h-2 block overflow-hidden">
                         <img
                             src="{{ $product->image }}"
@@ -35,7 +35,7 @@ use Illuminate\Database\Eloquent\Collection;
                     </a>
                     <div class="p-4">
                         <h3 class="text-lg">
-                            <a href="/">
+                            <a href="{{ route('product.view', $product->slug) }}">
                                 {{$product->title}}
                             </a>
                         </h3>

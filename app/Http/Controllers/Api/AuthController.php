@@ -11,8 +11,20 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
+/**
+ * Class AuthController
+ *
+ * @package App\Http\Controllers
+ */
 class AuthController extends Controller
 {
+    /**
+     * Handle user login attempt.
+     *
+     * @param Request $request The incoming request containing user credentials.
+     * @return Response|Application|ResponseFactory A response containing user data and token on successful login,
+     *                                              or an error response on failed login attempt.
+     */
     public function login(Request $request): Response|Application|ResponseFactory
     {
         $credentials = $request->validate([
@@ -45,6 +57,11 @@ class AuthController extends Controller
         ]);
     }
 
+    /**
+     * Handle user logout.
+     *
+     * @return Response|Application|ResponseFactory A response indicating successful logout.
+     */
     public function logout(): Response|Application|ResponseFactory
     {
         /** @var User $user */
@@ -54,7 +71,14 @@ class AuthController extends Controller
         return response('', 204);
     }
 
-    public function getUser(Request $request)
+
+    /**
+     * Get the authenticated user's data.
+     *
+     * @param Request $request The incoming request.
+     * @return UserResource The user's resource representation.
+     */
+    public function getUser(Request $request): UserResource
     {
         return new UserResource($request->user());
     }
