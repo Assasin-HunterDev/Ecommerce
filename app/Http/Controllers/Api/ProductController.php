@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\URL;
 use Illuminate\Support\Str;
 
 /**
- * Class ProductController
+ * Class ProductController handles API endpoints related to products.
  *
  * @package App\Http\Controllers\Api
  */
@@ -25,7 +25,7 @@ class ProductController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return AnonymousResourceCollection
+     * @return AnonymousResourceCollection A collection of products in the form of anonymous resources.
      */
     public function index(): AnonymousResourceCollection
     {
@@ -47,8 +47,8 @@ class ProductController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param ProductRequest $request
-     * @return Response|ProductResource
+     * @param ProductRequest $request The incoming product creation request.
+     * @return Response|ProductResource A response containing the newly created product resource.
      * @throws Exception
      */
     public function store(ProductRequest $request): Response|ProductResource
@@ -75,8 +75,8 @@ class ProductController extends Controller
     /**
      * Save image to a file system.
      *
-     * @param UploadedFile $image
-     * @return string
+     * @param UploadedFile $image The uploaded image file.
+     * @return string The relative path to the saved image.
      * @throws Exception
      */
     private function saveImage(UploadedFile $image): string
@@ -95,8 +95,8 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param Product $product
-     * @return ProductResource
+     * @param Product $product The specific product to display.
+     * @return ProductResource The resource representation of the specific product.
      */
     public function show(Product $product): ProductResource
     {
@@ -106,9 +106,9 @@ class ProductController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param ProductRequest $request
-     * @param Product $product
-     * @return ProductResource
+     * @param ProductRequest $request The incoming product update request.
+     * @param Product $product The product to be updated.
+     * @return ProductResource The updated resource representation of the product.
      * @throws Exception
      */
     public function update(ProductRequest $request, Product $product): ProductResource
@@ -139,8 +139,8 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param Product $product
-     * @return Response
+     * @param Product $product The product to be deleted.
+     * @return Response A response indicating the successful deletion of the product.
      */
     public function destroy(Product $product): Response
     {
