@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class GuestOrVerified extends EnsureEmailIsVerified
+class GuestOrVerified extends \Illuminate\Auth\Middleware\EnsureEmailIsVerified
 {
     /**
      * Handle an incoming request.
