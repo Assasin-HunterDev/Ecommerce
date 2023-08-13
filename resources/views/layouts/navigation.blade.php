@@ -90,7 +90,7 @@
                         class="z-10 right-0 bg-slate-800 py-2"
                     >
                         <li>
-                            <a href="{{ route('profile') }}" class="flex px-3 py-2 hover:bg-slate-900">
+                            <a href="/" class="flex px-3 py-2 hover:bg-slate-900">
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
                                     class="h-5 w-5 mr-2"
@@ -110,7 +110,7 @@
                         </li>
                         <li class="hover:bg-slate-900">
                             <a
-                                href="{{ route('order.index') }}"
+                                href="/"
                                 class="flex items-center px-3 py-2 hover:bg-slate-900"
                             >
                                 <svg
@@ -270,7 +270,7 @@
                     >
                         <li>
                             <a
-                                href="{{ route('profile') }}"
+                                href="/"
                                 class="flex px-3 py-2 hover:bg-slate-900"
                             >
                                 <svg
@@ -292,7 +292,7 @@
                         </li>
                         <li>
                             <a
-                                href="{{ route('order.index') }}"
+                                href="/"
                                 class="flex px-3 py-2 hover:bg-slate-900"
                             >
                                 <svg
