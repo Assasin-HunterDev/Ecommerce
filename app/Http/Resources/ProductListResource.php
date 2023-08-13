@@ -2,7 +2,11 @@
 
 namespace App\Http\Resources;
 
+use Exception;
+use Illuminate\Contracts\Support\Arrayable;
+use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\JsonResource;
+use JsonSerializable;
 use Nette\Utils\DateTime;
 
 class ProductListResource extends JsonResource
@@ -10,10 +14,11 @@ class ProductListResource extends JsonResource
     /**
      * Transform the resource into an array.
      *
-     * @param \Illuminate\Http\Request $request
-     * @return array|\Illuminate\Contracts\Support\Arrayable|\JsonSerializable
+     * @param Request $request
+     * @return array|Arrayable|JsonSerializable
+     * @throws Exception
      */
-    public function toArray($request)
+    public function toArray(Request $request): array|JsonSerializable|Arrayable
     {
         return [
             'id' => $this->id,

@@ -1,7 +1,8 @@
 <x-app-layout>
     <div
         class="container mx-auto"
-        x-data="productItem({{ json_encode([
+        x-data="productItem({{
+                json_encode([
                         'id' => $product->id,
                         'slug' => $product->slug,
                         'image' => $product->image,
@@ -110,6 +111,7 @@
                         x-ref="quantityEl"
                         value="1"
                         min="1"
+                        x-on:input="validateQuantityInput"
                         class="w-32 focus:border-purple-500 focus:outline-none rounded"
                     />
                 </div>

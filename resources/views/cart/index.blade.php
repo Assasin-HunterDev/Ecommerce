@@ -52,7 +52,9 @@
                                                 type="number"
                                                 min="1"
                                                 x-model="product.quantity"
+                                                x-on:input="validateQuantityInput"
                                                 @change="changeQuantity()"
+                                                :style="changeQuantityInputWidthStyle"
                                                 class="ml-3 py-1 border-gray-200 focus:border-purple-600 focus:ring-purple-600 w-16"
                                             />
                                         </div>
