@@ -85,6 +85,21 @@ document.addEventListener("alpine:init", async () => {
                         });
                     })
             },
+            validateQuantityInput(event) {
+                const inputEl = event.target;
+                const inputValue = parseInt(inputEl.value);
+
+                if (isNaN(inputValue) || inputValue < 1) {
+                    inputEl.value = 1;
+                }
+            },
+            changeQuantityInputWidthStyle() {
+                const minWidth = 3; // Minimum width in em units
+                const maxLength = 17; // Maximum length before stopping width increase
+                const length = product.quantity.toString().length;
+                const width = Math.min(length + 1, maxLength) + minWidth;
+                return `width: ${width}em`;
+            },
         };
     });
 });
