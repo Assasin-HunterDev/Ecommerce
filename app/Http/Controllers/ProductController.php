@@ -8,7 +8,7 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 
 /**
- * Class ProductController
+ * Class ProductController handles actions related to products.
  *
  * @package App\Http\Controllers
  */

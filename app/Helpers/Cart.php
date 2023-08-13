@@ -4,8 +4,18 @@ namespace App\Helpers;
 
 use App\Models\CartItem;
 
+/**
+ * A helper class for managing cart-related operations.
+ *
+ * @package App\Helpers
+ */
 class Cart
 {
+    /**
+     * Get the total count of cart items for the current user.
+     *
+     * @return int
+     */
     public static function getCartItemsCount(): int
     {
         $request = request();
@@ -23,7 +33,12 @@ class Cart
         }
     }
 
-    public static function getCartItems()
+    /**
+     * Get the cart items for the current user or from cookies.
+     *
+     * @return mixed
+     */
+    public static function getCartItems(): mixed
     {
         $request = request();
         $user = $request->user();
@@ -36,12 +51,23 @@ class Cart
         }
     }
 
-    public static function getCookieCartItems()
+    /**
+     * Get cart items stored in cookies.
+     *
+     * @return mixed
+     */
+    public static function getCookieCartItems(): mixed
     {
         return json_decode(request()->cookie('cart_items', '[]'), true);
     }
 
-    public static function getCountFromItems($cartItems): int
+    /**
+     * Calculate the total count of items from an array of cart items.
+     *
+     * @param array $cartItems
+     * @return int
+     */
+    public static function getCountFromItems(array $cartItems): int
     {
         return array_reduce(
             $cartItems,
@@ -50,6 +76,11 @@ class Cart
         );
     }
 
+    /**
+     * Move cart items from cookies into the database for the current user.
+     *
+     * @return void
+     */
     public static function moveCartItemsIntoDb(): void
     {
         $request = request();

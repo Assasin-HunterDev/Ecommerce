@@ -12,7 +12,7 @@ use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 
 /**
- * Class AuthController
+ * Class AuthController manages user authentication-related actions.
  *
  * @package App\Http\Controllers
  */

@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 
 /**
- * Class ProfileController
+ * Class ProfileController manages user profile related actions.
  *
  * @package App\Http\Controllers
  */
