@@ -3,8 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Enums\AddressType;
+use App\Http\Requests\PasswordUpdateRequest;
 use App\Http\Requests\ProfileRequest;
-use App\Http\Requests\ProfileUpdateRequest;
 use App\Models\Country;
 use App\Models\Customer;
 use App\Models\CustomerAddress;
@@ -14,6 +14,8 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Validation\ValidationException;
 
 /**
  * Class ProfileController manages user profile related actions.
@@ -22,6 +24,12 @@ use Illuminate\Http\Request;
  */
 class ProfileController extends Controller
 {
+    /**
+     * Display the user's profile information.
+     *
+     * @param Request $request
+     * @return View|Application|Factory|\Illuminate\Contracts\Foundation\Application
+     */
     public function view(Request $request): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
         /** @var User $user */
@@ -34,6 +42,13 @@ class ProfileController extends Controller
         return view('profile.view', compact('customer', 'user', 'shippingAddress', 'billingAddress', 'countries'));
     }
 
+    /**
+     * Store the updated profile information.
+     *
+     * @param ProfileRequest $request
+     * @return RedirectResponse
+     * @throws ValidationException
+     */
     public function store(ProfileRequest $request): RedirectResponse
     {
         $customerData = $request->validated();
@@ -65,5 +80,23 @@ class ProfileController extends Controller
         $request->session()->flash('flash_message', 'Profile was successfully updated.');
 
         return redirect()->route('profile');
+    }
+
+    /**
+     * Update the user's password.
+     *
+     * @param PasswordUpdateRequest $request
+     * @return void
+     */
+    public function passwordUpdate(PasswordUpdateRequest $request): void
+    {
+        /** @var User $user */
+        $user = $request->user();
+        $passwordData = $request->validated();
+
+        $user->password = Hash::make($passwordData['new_password']);
+        $user->save();
+
+        $request->session()->flash('flash_message', 'Your password was successfully updated.');
     }
 }
