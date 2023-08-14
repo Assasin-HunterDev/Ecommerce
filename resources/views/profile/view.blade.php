@@ -47,7 +47,7 @@
                             return null;
                         }
                     }"
-                    action=""
+                    action="{{ route('profile.update') }}"
                     method="POST"
                 >
                     @csrf
