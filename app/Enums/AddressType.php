@@ -12,10 +12,10 @@ enum AddressType: string
     /**
      * The address type for shipping.
      */
-    const Shipping = 'shipping';
+    case Shipping = 'shipping';
 
     /**
      * The address type for billing.
      */
-    const Billing = 'billing';
+    case Billing = 'billing';
 }
