@@ -1,13 +1,8 @@
-@php
-    use Illuminate\Support\ViewErrorBag;
-    use Illuminate\View\ComponentAttributeBag;
-@endphp
-
 @props(['disabled' => false, 'errors', 'type' => 'text', 'label' => false])
 
 <?php
-/** @var ViewErrorBag $errors */
-/** @var ComponentAttributeBag $attributes */
+/** @var \Illuminate\Support\ViewErrorBag $errors */
+/** @var \Illuminate\View\ComponentAttributeBag  $attributes */
 ?>
 <?php
 $errorClasses = 'border-red-600 focus:border-red-600 ring-1 ring-red-600 focus:ring-red-600';
@@ -21,18 +16,16 @@ $attributeName = preg_replace('/(\w+)\[(\w+)]/', '$1.$2', $attributes['name']);
         <label>{{$label}}</label>
     @endif
     @if ($type === 'select')
-            <label>
-                <select {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge([
-                    'class' => 'border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full ' .
-                     ($errors->has($attributeName) ? $errorClasses : (old($attributeName) ? $successClasses :$defaultClasses))
-                ]) !!}>
-                    {{ $slot }}
-                </select>
-            </label>
-        @else
+        <select {{ $disabled ? 'disabled' : '' }} {!! $attributes->merge([
+            'class' => 'border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full ' .
+            ($errors->has($attributeName) ? $errorClasses : (old($attributeName) ? $successClasses :$defaultClasses))
+        ]) !!}>
+            {{ $slot }}
+        </select>
+    @else
         <input {{ $disabled ? 'disabled' : '' }} type="{{$type}}" {!! $attributes->merge([
             'class' => 'border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full ' .
-             ($errors->has($attributeName) ? $errorClasses : (old($attributeName) ? $successClasses :$defaultClasses))
+            ($errors->has($attributeName) ? $errorClasses : (old($attributeName) ? $successClasses :$defaultClasses))
         ]) !!}>
     @endif
     @error($attributeName)
