@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Helpers\Cart;
 use App\Http\Controllers\Controller;
+use App\Models\Customer;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Auth\Events\Registered;
@@ -45,10 +46,29 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
+        self::registerCustomer($user);
+
         Auth::login($user);
 
         Cart::moveCartItemsIntoDb();
 
         return redirect(RouteServiceProvider::HOME);
+    }
+
+    /**
+     * Register a new customer based on a user.
+     *
+     * @param User $user The user to register as a customer.
+     * @return void
+     */
+    private function registerCustomer(User $user): void
+    {
+        $names = explode(" ", $user->name);
+
+        $customer = new Customer();
+        $customer->user_id = $user->id;
+        $customer->first_name = $names[0];
+        $customer->last_name = $names[1] ?? '';
+        $customer->save();
     }
 }
