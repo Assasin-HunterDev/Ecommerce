@@ -62,9 +62,7 @@ document.addEventListener("alpine:init", async () => {
                             message: "The item was added into the cart",
                         });
                     })
-                    .catch(response => {
-                        console.log(response);
-                    })
+                    .catch(response => console.log(response));
             },
             removeItemFromCart() {
                 post(this.product.removeUrl)
@@ -75,6 +73,19 @@ document.addEventListener("alpine:init", async () => {
                         this.$dispatch('cart-change', {count: result.count})
                         this.cartItems = this.cartItems.filter(p => p.id !== product.id)
                     })
+                    .catch(response => console.log(response));
+            },
+            removeAllItemsFromCart() {
+                Promise.all(this.cartItems.map(product =>
+                    post(product.removeUrl)
+                        .catch(response => console.log(response))
+                ))
+                    .then(() => {
+                        this.$dispatch("notify", {
+                            message: "All items were removed from cart",
+                        });
+                        this.cartItems = [];
+                    });
             },
             changeQuantity() {
                 post(this.product.updateQuantityUrl, {quantity: product.quantity})
@@ -84,14 +95,13 @@ document.addEventListener("alpine:init", async () => {
                             message: "The item quantity was updated",
                         });
                     })
+                    .catch(response => console.log(response));
             },
             validateQuantityInput(event) {
                 const inputEl = event.target;
                 const inputValue = parseInt(inputEl.value);
 
-                if (isNaN(inputValue) || inputValue < 1) {
-                    inputEl.value = 1;
-                }
+                if (isNaN(inputValue) || inputValue < 1) inputEl.value = 1;
             },
             changeQuantityInputWidthStyle() {
                 const minWidth = 3; // Minimum width in em units

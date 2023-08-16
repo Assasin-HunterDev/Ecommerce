@@ -11,7 +11,6 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
-use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\Cookie;
 
 /**
@@ -28,10 +27,7 @@ class CartController extends Controller
      */
     public function index(): View|Application|Factory|\Illuminate\Contracts\Foundation\Application
     {
-        $cartItems = Cart::getCartItems();
-        $ids = Arr::pluck($cartItems, 'product_id');
-        $products = Product::query()->whereIn('id', $ids)->get();
-        $cartItems = Arr::keyBy($cartItems, 'product_id');
+        list($products, $cartItems) = Cart::getProductsAndCartItems();
         $total = 0;
         foreach ($products as $product) $total += $product->price * $cartItems[$product->id]['quantity'];
 
@@ -51,7 +47,7 @@ class CartController extends Controller
         $user = $request->user();
         if ($user) {
 
-            $cartItem = CartItem::where(['user_id' => $user->id, 'product_id' => $product->id])->first();
+            $cartItem = CartItem::query()->where(['user_id' => $user->id, 'product_id' => $product->id])->first();
 
             if ($cartItem) {
                 $cartItem->quantity += $quantity;
