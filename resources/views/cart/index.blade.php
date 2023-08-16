@@ -80,11 +80,22 @@
                             <span class="font-semibold">Subtotal</span>
                             <span id="cartTotal" class="text-xl" x-text="`$${cartTotal}`"></span>
                         </div>
-                        <p class="text-gray-500 mb-6">
-                            Shipping and taxes calculated at checkout.
-                        </p>
+                        <div class="flex justify-between">
+                            <span class="text-gray-500 mb-6">Shipping and taxes calculated at checkout.</span>
+                            <div x-data="productItem(cartItems)">
+                                <span>
+                                    <a
+                                        href="#"
+                                        @click.prevent="removeAllItemsFromCart()"
+                                        class="text-purple-600 hover:text-purple-500"
+                                    >
+                                        Remove All
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
 
-                        <form action="/" method="post">
+                        <form action="{{ route('cart.checkout') }}" method="post">
                             @csrf
                             <button type="submit" class="btn-primary w-full py-3 text-lg">
                                 Proceed to Checkout

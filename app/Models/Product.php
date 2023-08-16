@@ -8,12 +8,22 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
 
+/**
+ * Class Product represents a product in the application.
+ *
+ * @package App\Models
+ */
 class Product extends Model
 {
     use HasFactory;
     use HasSlug;
     use SoftDeletes;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'title',
         'description',
@@ -37,6 +47,11 @@ class Product extends Model
             ->saveSlugsTo('slug');
     }
 
+    /**
+     * Get the route key name for the model.
+     *
+     * @return string
+     */
     public function getRouteKeyName(): string
     {
         return 'slug';

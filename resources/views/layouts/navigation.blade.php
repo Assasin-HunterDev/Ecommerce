@@ -110,7 +110,7 @@
                         </li>
                         <li class="hover:bg-slate-900">
                             <a
-                                href="/"
+                                href="{{ route('orders.index') }}"
                                 class="flex items-center px-3 py-2 hover:bg-slate-900"
                             >
                                 <svg
@@ -135,9 +135,10 @@
                             <form method="POST" action="{{ route('logout') }}">
                                 @csrf
 
-                                <a href="{{ route('logout') }}"
-                                   class="flex items-center px-3 py-2 hover:bg-slate-900"
-                                   onclick="event.preventDefault();
+                                <a
+                                    href="{{ route('logout') }}"
+                                    class="flex items-center px-3 py-2 hover:bg-slate-900"
+                                    onclick="event.preventDefault();
                                         this.closest('form').submit();">
                                     <svg
                                         xmlns="http://www.w3.org/2000/svg"
@@ -292,7 +293,7 @@
                         </li>
                         <li>
                             <a
-                                href="/"
+                                href="{{ route('orders.index') }}"
                                 class="flex px-3 py-2 hover:bg-slate-900"
                             >
                                 <svg
