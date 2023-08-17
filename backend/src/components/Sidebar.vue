@@ -1,64 +1,73 @@
 <template>
-    <div class="min-w-[200px] w-[200px] transition-all bg-indigo-600 text-white py-4 px-2">
-        <router-link :to="{name: 'app.dashboard'}"
-                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
-      <span class="mr-2 text-white">
-        <HomeIcon class="w-5"/>
-      </span>
-            <span class="text-sm font-normal">
-        Dashboard
-      </span>
+    <div class="min-w-[160px] w-[160px]  transition-all bg-indigo-700 text-white py-4 px-2">
+        <router-link
+            :to="{name: 'app.dashboard'}"
+            class="flex items-center p-2 rounded transition-colors hover:bg-black/30"
+        >
+            <span class="mr-2 text-gray-300">
+                <HomeIcon class="w-5"/>
+            </span>
+            <span class="text-xs">
+                Dashboard
+            </span>
         </router-link>
-        <router-link :to="{name: 'app.products'}"
-                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
-      <span class="mr-2 text-white">
-        <ViewListIcon class="w-5"/>
-      </span>
-            <span class="text-sm font-normal">
-        Products
-      </span>
+        <router-link
+            :to="{name: 'app.products'}"
+            class="flex items-center p-2 rounded transition-colors hover:bg-black/30"
+        >
+            <span class="mr-2 text-gray-300">
+                <ViewListIcon class="w-5"/>
+            </span>
+            <span class="text-xs">
+                Products
+            </span>
         </router-link>
-        <router-link to=""
-                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
-      <span class="mr-2 text-white">
-        <ViewListIcon class="w-5"/>
-      </span>
-            <span class="text-sm font-normal">
-        Orders
-      </span>
+        <router-link
+            :to="{name: 'app.orders'}"
+            class="flex items-center p-2 rounded transition-colors hover:bg-black/30"
+        >
+            <span class="mr-2 text-gray-300">
+                <ViewListIcon class="w-5"/>
+            </span>
+            <span class="text-xs">
+                Orders
+            </span>
         </router-link>
-        <router-link to=""
-                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
-      <span class="mr-2 text-white">
-        <UsersIcon class="w-5"/>
-      </span>
-            <span class="text-sm font-normal">
-        Users
-      </span>
-        </router-link>
-        <router-link to=""
-                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
-      <span class="mr-2 text-white">
-        <UserGroupIcon class="w-5"/>
-      </span>
-            <span class="text-sm font-normal">
-        Customers
-      </span>
-        </router-link>
-        <router-link to=""
-                     class="flex items-center p-2 rounded-md transition-colors hover:bg-indigo-700">
-      <span class="mr-2 text-white">
-        <ChartBarIcon class="w-5"/>
-      </span>
-            <span class="text-sm font-normal">
-        Reports
-      </span>
-        </router-link>
+<!--        <router-link-->
+<!--            :to="{name: 'app.users'}"-->
+<!--            class="flex items-center p-2 rounded transition-colors hover:bg-black/30"-->
+<!--        >-->
+<!--            <span class="mr-2 text-gray-300">-->
+<!--                <UsersIcon class="w-5"/>-->
+<!--            </span>-->
+<!--            <span class="text-xs">Users</span>-->
+<!--        </router-link>-->
+<!--        <router-link-->
+<!--            :to="{name: 'app.customers'}"-->
+<!--            class="flex items-center p-2 rounded transition-colors hover:bg-black/30"-->
+<!--        >-->
+<!--            <span class="mr-2 text-gray-300">-->
+<!--                <UserGroupIcon class="w-5"/>-->
+<!--            </span>-->
+<!--            <span class="text-xs">-->
+<!--                Customers-->
+<!--            </span>-->
+<!--        </router-link>-->
+<!--        <router-link-->
+<!--            :to="{name: 'reports.orders'}"-->
+<!--            class="flex items-center p-2 rounded transition-colors hover:bg-black/30"-->
+<!--        >-->
+<!--            <span class="mr-2 text-gray-300">-->
+<!--                <ChartBarIcon class="w-5"/>-->
+<!--            </span>-->
+<!--            <span class="text-xs">Reports</span>-->
+<!--        </router-link>-->
     </div>
 </template>
 
-<script setup lang="ts">
-import {ChartBarIcon, HomeIcon, UserGroupIcon, UsersIcon, ViewListIcon} from "@heroicons/vue/outline";</script>
+<script lang="ts" setup>
+import {HomeIcon, UserGroupIcon, UsersIcon, ViewListIcon, ChartBarIcon} from '@heroicons/vue/outline'
+</script>
 
 <style scoped>
 

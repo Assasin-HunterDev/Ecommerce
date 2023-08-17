@@ -9,7 +9,7 @@
             Add new Product
         </button>
     </div>
-    <ProductsTable @clickEdit="editProduct"/>
+    <ProductTable @clickEdit="editProduct"/>
     <ProductModal v-model="showProductModal" :product="productModel" @close="onModalClose"/>
 </template>
 
@@ -17,7 +17,7 @@
 import {ref} from "vue";
 import store from "../../store";
 import ProductModal from "./ProductModal.vue";
-import ProductsTable from "./ProductsTable.vue";
+import ProductTable from "./ProductTable.vue";
 
 interface ProductInterface {
     id: String,

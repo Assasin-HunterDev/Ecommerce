@@ -152,13 +152,13 @@
                     v-for="(link, i) of products.links"
                     :key="i"
                     :class="[
-              link.active
-                ? 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600'
-                : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50',
-              i === 0 ? 'rounded-l-md' : '',
-              i === products.links.length - 1 ? 'rounded-r-md' : '',
-              !link.url ? ' bg-gray-100 text-gray-700': ''
-            ]"
+                        link.active
+                            ? 'z-10 bg-indigo-50 border-indigo-500 text-indigo-600'
+                            : 'bg-white border-gray-300 text-gray-500 hover:bg-gray-50',
+                        i === 0 ? 'rounded-l-md' : '',
+                        i === products.links.length - 1 ? 'rounded-r-md' : '',
+                        !link.url ? ' bg-gray-100 text-gray-700': ''
+                    ]"
                     :disabled="!link.url"
                     aria-current="page"
                     class="relative inline-flex items-center px-4 py-2 border text-sm font-medium whitespace-nowrap"
