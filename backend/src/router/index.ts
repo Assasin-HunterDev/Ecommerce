@@ -3,6 +3,7 @@ import store from "../store";
 import AppLayout from "../components/AppLayout.vue";
 import Dashboard from "../views/Dashboard.vue";
 import Products from "../views/Products/Products.vue";
+import Orders from "../views/Orders/Orders.vue";
 import Login from "../views/Login.vue";
 import ForgotPassword from "../views/ForgotPassword.vue";
 import ResetPassword from "../views/ResetPassword.vue";
@@ -28,6 +29,11 @@ const routes: any = [
                 name: 'app.products',
                 component: Products
             },
+            {
+                path: 'orders',
+                name: 'app.orders',
+                component: Orders
+            }
         ],
         meta: {
             requiresAuth: true
